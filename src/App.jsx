@@ -9,7 +9,13 @@ import Testimonials from './components/Testimonials/Testimonials.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Popup from './components/Pop.jsx'
 const App = () => {
+
+  const [orderPopup, setOrderPopup] = React.useState(false);
+   const handlerOrderPopup = () => {
+    setOrderPopup(!orderPopup);
+  }
    React.useEffect(() => {
     AOS.init({
       offset: 100,
@@ -23,7 +29,7 @@ const App = () => {
   , [])
   return (
     <div className='bg-white dark:bg-gray-900 dark:text-white duration-200'> 
-      <NavBar/>
+      <NavBar  handlerOrderPopup={handlerOrderPopup} />
       <Hero />
       <Products />
       <TopProducts />
@@ -32,6 +38,7 @@ const App = () => {
       <Products />
       <Testimonials />
       <Footer/>
+      <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
     </div>
   )
 }

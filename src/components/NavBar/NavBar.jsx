@@ -54,7 +54,7 @@ const DropdownLinks = [
 ]     
     
 
-const NavBar = () => {
+const NavBar = ({ handlerOrderPopup }) => {
   return (
     <div>
         {/* Upper Nav */}
@@ -83,7 +83,7 @@ const NavBar = () => {
                         </div>
                     </div>
                     {/* order button */}
-                    <button onClick={() => alert("Order button clicked")}
+                    <button onClick={() => handlerOrderPopup()}
                         className='bg-gradient-to-r
                          from-primary to-secondary
                           transition-all duration-300
